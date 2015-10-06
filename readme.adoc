@@ -1,0 +1,166 @@
+== Čaj - expect(yourTest).to.be("simple")
+Čaj enables you to write expectations for your tests in a straightforward and simple way. A typical example is 
+
+[source,java]
+----
+expect(yourTest).to.be("simple");
+----
+
+There are many comparisons already built into Čaj, e.g.
+
+[source,java]
+----
+expect(javasAge).to.be.within(15, 25);
+----
+
+You can also define expectations on collections:
+
+[source,java]
+----
+expect(collection).to.include(aSpecificValue);
+----
+    
+The parameter collection can be any of the Java standard collections, an array or even a String.
+
+But where Čaj really shines, is its ability to concatenate expectations:
+
+[source,java]
+----
+expect(java).to.have.a.property("age").which.is.at.least(20);
+----
+
+=== 5 Minutes Quick Guide
+This quick guide will give a brief introduction into Čaj.
+
+==== The starting point
+The starting point of all expectations formulated with Čaj is the method expect() in the Caj class. As this is the only method you will need, it is a good idea to do a single static import:
+
+[source,java]
+----
+import static com.netopyr.caj.Caj.expect;
+----
+
+Every expectations starts with a call of the method expect() with the subject of the expectation as the only parameter.
+
+[source,java]
+----
+expect(objectUnderTest)
+----
+
+==== Fill Words
+Čaj provides a number of fill words, which can be added anywhere into an expectation. They have no effect on the expectation and their sole purpose is to help you formulate expectations that are easier to read and understand. The following fill words are available:
+
+    a, an, and, at, be, been, has, is, of, same, that, to, which, with
+
+==== Modifiers
+Čaj also defines a number of modifiers, which can also be added anywhere into an expectation. But other in contrast to the fill words, modifiers do change the meaning of an expression.
+
+===== not
+The not modifier negates your expectation.
+
+[source,java]
+----
+expect(yourTest).not.to.be("hard");
+----
+
+===== any / all
+TBD
+
+===== length / size
+The length or size modifier shift the focus of your expectation to the length or size of the collection, array or String, that was passed into the expect() method. This allows you to formulate expectations like
+
+[source,java]
+----
+expect("Hello").to.have.a.length.of.at.most(5);
+----
+
+===== contain(s) / include(s)
+TBD
+
+==== Finishing an Expectation
+The last part of an expectation is a method that specifies what is actually expected. There are numerous methods available, which are explained in the following table
+.Expectation Methods
+[frame="topbot",options="header"]
+|===
+|Method     |Aliases | Description
+
+|instanceOf  |a, an                  
+|Asserts the class of the target value
+
+|equal       |eq, be
+|Asserts that the target value is equal to the given value
+
+|within      |
+|Asserts that a value is within a given range
+
+|above       |greaterThan, gt
+|Asserts that a value is above a minimum
+
+|least       |gte
+|Asserts that a value is at least as high as a minimum
+
+|below       |lessThan, lt
+|Asserts that a value is below a maximum
+
+|most        |lte
+|Asserts that a value is at most as high as a maximum
+
+|match(es)   |
+|Asserts that a String matches a regular expression
+
+|length      |size, lengthOf, sizeOf
+|Asserts that a collection, array or String has a certain size resp. length
+
+|empty       |
+|Asserts that a collection or array is empty
+
+|include(s)  |contain(s)
+|Asserts that a collection or array includes the given elements
+
+|property    |
+|Asserts that an Object has a certain property (optionally with a given value)
+
+|string      |
+|Asserts that a String contains a given Sub-String
+
+|keys        |
+|Asserts that a Map contains the given keys
+
+|cause(s)    |
+|Asserts that calling the Runnable, Callable or Supplier causes the given Throwable
+
+|satisfy     |
+|Asserts that the value satisfies a given Predicate
+
+|closeTo     |
+|Asserts that the value is close to a given number (with a given threshold)
+
+|members     |
+|Asserts that a collection or array contains all of the given elements
+
+|change(s)   |
+|Asserts that calling the Runnable or Callable will change the given objectproperty
+
+|increase(s) |
+|Asserts that calling the Runnable or Callable will increase the given object property
+
+|decrease(s) |
+|Asserts that calling the Runnable or Callable will decrease the given object property
+|===
+
+
+===== Chaining
+Expectations can often be chained, which allows you to define several expectations for the same subject in one go.
+
+[source,java]
+----
+expect(tea).to.have.property("extras").which.contains("smile");
+
+expect(badFunction).to.cause(Error.class).with.property("message", "testing");
+----
+
+=== Installation
+Čaj will soon be available on jCenter and Maven Central for easy setup.
+
+=== Further Documentation
+* Čaj's JavaDocs (coming soon)
