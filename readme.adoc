@@ -1,9 +1,9 @@
-== Čaj - expect(yourTest).to.be("simple")
+== Čaj - expect(yourTests).to.be("simple");
 Čaj enables you to write expectations for your tests in a straightforward and simple way. A typical example is 
 
 [source,java]
 ----
-expect(yourTest).to.be("simple");
+expect(yourTests).to.be("simple");
 ----
 
 There are many comparisons already built into Čaj, e.g.
@@ -60,7 +60,7 @@ The not modifier negates your expectation.
 
 [source,java]
 ----
-expect(yourTest).not.to.be("hard");
+expect(yourTests).not.to.be("hard");
 ----
 
 ===== any / all
