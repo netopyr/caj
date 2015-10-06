@@ -323,7 +323,7 @@ public class Assertion {
         doEqual(expected, prefix, null);
     }
     /**
-     * Same as {@link #equal(Object)} with no prefix set.
+     * Same as {@link #equal(Object, String)} with no prefix set.
      *
      * @param expected the expected value the target should be compared with
      */
@@ -1101,15 +1101,15 @@ public class Assertion {
         );
         return new Assertion(object, EnumSet.of(Flags.DO_LENGTH));
     }
-    /** Alias of {@link #length(int, String) */
+    /** Alias of {@link #length(int, String)} */
     public Assertion size(int length, String prefix) {
         return length(length, prefix);
     }
-    /** Alias of {@link #length(int, String) */
+    /** Alias of {@link #length(int, String)} */
     public void lengthOf(int length, String prefix) {
         length(length, prefix);
     }
-    /** Alias of {@link #length(int, String) */
+    /** Alias of {@link #length(int, String)} */
     public void sizeOf(int length, String prefix) {
         length(length, prefix);
     }
@@ -1218,15 +1218,15 @@ public class Assertion {
         );
         return new Assertion(object, EnumSet.of(Flags.CONTAINS));
     }
-    /** Alias of {@link #include(Object, String} */
+    /** Alias of {@link #include(Object, String)} */
     public Assertion includes(Object value, String prefix) {
         return include(value, prefix);
     }
-    /** Alias of {@link #include(Object, String} */
+    /** Alias of {@link #include(Object, String)} */
     public Assertion contain(Object value, String prefix) {
         return include(value, prefix);
     }
-    /** Alias of {@link #include(Object, String} */
+    /** Alias of {@link #include(Object, String)} */
     public Assertion contains(Object value, String prefix) {
         return include(value, prefix);
     }
@@ -1240,15 +1240,15 @@ public class Assertion {
     public Assertion include(Object value) {
         return include(value, null);
     }
-    /** Alias of {@link #include(Object} */
+    /** Alias of {@link #include(Object)} */
     public Assertion includes(Object value) {
         return include(value);
     }
-    /** Alias of {@link #include(Object} */
+    /** Alias of {@link #include(Object)} */
     public Assertion contain(Object value) {
         return include(value);
     }
-    /** Alias of {@link #include(Object} */
+    /** Alias of {@link #include(Object)} */
     public Assertion contains(Object value) {
         return include(value);
     }
@@ -1709,6 +1709,7 @@ public class Assertion {
     }
 
 
+    @SuppressWarnings("unchecked")
     private boolean isSubsetOf(Object subsetParam, Object supersetParam) {
         final Collection subset;
         if (subsetParam instanceof Collection) {
