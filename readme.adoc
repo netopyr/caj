@@ -160,7 +160,19 @@ expect(badFunction).to.cause(Error.class).with.property("message", "testing");
 ----
 
 === Installation
-Čaj will soon be available on jCenter and Maven Central for easy setup.
+Čaj is available from https://bintray.com/netopyr/caj/caj/0.1.0/view[Bintray] and will soon also be available from Maven Central.
+
+To use Čaj in your project, add the following dependency and you are ready to go!
+
+[source,xml]
+----
+<dependency>
+    <groupId>com.netopyr.caj</groupId>
+    <artifactId>caj</artifactId>
+    <version>0.1.0</version>
+    <scope>test</scope>
+</dependency>
+----
 
 === Further Documentation
-* Čaj's JavaDocs (coming soon)
+* http://caj.netopyr.com/javadoc/[Čaj's JavaDocs]
