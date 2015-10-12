@@ -160,7 +160,7 @@ expect(badFunction).to.cause(Error.class).with.property("message", "testing");
 ----
 
 === Installation
-Čaj is available from https://bintray.com/netopyr/caj/caj/view[JCenter] and will soon also be available from Maven Central.
+Čaj is available from https://bintray.com/netopyr/caj/caj/view[JCenter] and http://search.maven.org/#artifactdetails%7Ccom.netopyr.caj%7Ccaj%7C0.1.0%7Cjar[Maven Central].
 
 To use Čaj in your project, add the following dependency and you are ready to go!
 
@@ -172,6 +172,27 @@ To use Čaj in your project, add the following dependency and you are ready to g
     <version>0.1.0</version>
     <scope>test</scope>
 </dependency>
+----
+
+And here is a small example of a test using Čaj. The example uses http://testng.org/[TestNG], but you can also use http://junit.org/[JUnit].
+
+[source,java]
+----
+package com.netopyr.caj;
+
+import org.testng.annotations.Test;
+
+import static com.netopyr.caj.Caj.expect;
+
+public class ExampleTests {
+
+    @Test
+    public void testsShouldBeSimple() {
+        final String yourTest = "simple";
+
+        expect(yourTest).to.be("simple");
+    }
+}
 ----
 
 === Further Documentation
